@@ -25,6 +25,8 @@ import { UserService } from './_services/user.service';
 import { MemberDetailResolver } from './_resolvers/memberdetail.resolver';
 import { MemberListResolver } from './_resolvers/memberlist.resolver';
 import { NgxGalleryModule } from 'ngx-gallery-9';
+import { MemberEditComponent } from './members/memberEdit/memberEdit.component';
+import { MemberEditResolver } from './_resolvers/memberEdit.resolver';
 
 export function tokenGetters() {
    return localStorage.getItem('token');
@@ -47,7 +49,8 @@ export class CustomHammerConfig extends HammerGestureConfig {
       ListsComponent,
       MessagesComponent,
       MemberCardComponent,
-      MemberDetailComponent
+      MemberDetailComponent,
+      MemberEditComponent
    ],
    imports: [
       BrowserModule,
@@ -73,6 +76,7 @@ export class CustomHammerConfig extends HammerGestureConfig {
       UserService,
       MemberDetailResolver,
       MemberListResolver,
+      MemberEditResolver,
       { provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig}
    ],
    bootstrap: [
