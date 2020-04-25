@@ -1,5 +1,5 @@
 import { BrowserModule, HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Injectable } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 
@@ -27,11 +27,13 @@ import { MemberListResolver } from './_resolvers/memberlist.resolver';
 import { NgxGalleryModule } from 'ngx-gallery-9';
 import { MemberEditComponent } from './members/memberEdit/memberEdit.component';
 import { MemberEditResolver } from './_resolvers/memberEdit.resolver';
+import { PreventUnsavedChanges } from './_guards/preventUnsavedChanges.guard';
 
 export function tokenGetters() {
    return localStorage.getItem('token');
 }
 
+@Injectable()
 export class CustomHammerConfig extends HammerGestureConfig {
    overrides = {
       pinch: {enable: false},
@@ -73,6 +75,7 @@ export class CustomHammerConfig extends HammerGestureConfig {
       AuthService,
       ErrorInterceptorProvider,
       AuthGuard,
+      PreventUnsavedChanges,
       UserService,
       MemberDetailResolver,
       MemberListResolver,
