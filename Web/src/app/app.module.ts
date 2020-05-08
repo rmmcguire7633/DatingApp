@@ -31,6 +31,7 @@ import { PreventUnsavedChanges } from './_guards/preventUnsavedChanges.guard';
 import { PhotoEditerComponent } from './members/photoEditer/photoEditer.component';
 import { FileUploadModule } from 'ng2-file-upload';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { TimeagoModule } from 'ngx-timeago';
 
 export function tokenGetters() {
    return localStorage.getItem('token');
@@ -69,6 +70,7 @@ export class CustomHammerConfig extends HammerGestureConfig {
       BrowserAnimationsModule,
       NgxGalleryModule,
       FileUploadModule,
+      TimeagoModule.forRoot(),
       TabsModule.forRoot(),
       RouterModule.forRoot(appRoutes),
       JwtModule.forRoot({
